@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/nav-layout/Navbar'
+import { BrowserRouter as Router ,Route,Redirect } from 'react-router-dom'
+import Home from './components/body-layout/Home'
+import About from './components/body-layout/About'
+
+import NewBlog from './components/body-layout/NewBlog';
+import Register from './components/nav-layout/RegisterPage';
+import Login from './components/nav-layout/LoginPage'; 
+import Footer from './components/footer-layout/footer'
+
+import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+      <Router>
+         <Navbar />
+         <Route exact path="/">  <Redirect to="/blogs" /></Route>
+        <Route exact path='/blogs' component={ Home } />
+      
+        <Route exact path='/blogs/about' component={ About } />
+        <Route exact path='/blogs/create' component={ NewBlog } />
+        <Route exact path='/blogs/signin' component={ Register } />
+        <Route exact path='/blogs/login' component={ Login } />
+        <Footer />
+      </Router>
     </div>
   );
 }
