@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+/*--------------------------------------------------------------------------------------------------------*/
+/* nav section */
+.color-black{
+  color: #373d3f!important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#collapsibleNavbar1{
+  position: absolute;
+  right: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.icon-btn{
+  background: grey;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
-.App-link {
-  color: #61dafb;
+.close{
+   
+  margin-top: -2.4rem;
+  margin-right: 2rem;
+  opacity: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidenav-style{
+ text-align: center;
+
+}
+
+.sidenav-style a{
+    color: #373d3f;
+    letter-spacing: 1px;
+}
+.sidenav-style a:hover{
+  text-decoration: none;
+  color: grey;
+}
+
+/*------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ add new blog section         -----------------------------------*/
+
+.create-blog{
+    padding-top: 1.8rem;
+    padding-left: 1.1rem;
+}
+.form-control{
+    width: 50%;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ about section         -----------------------------------*/
+.about{
+  padding-top: 1.8rem;
+  padding-left: 2rem;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ home section         -----------------------------------*/
+.home{
+  padding-top: 1.8rem;
+  padding-left: 2rem;
+  color: #373d3f;
+}
+
+/*------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ register section         -----------------------------------*/
+.register{
+  padding-top: 1.8rem;
+  padding-left: 1.1rem;
+  color: #373d3f;
+
+}
+
+.register h5{
+  margin-bottom: 1rem;
+  margin-left: 12rem;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ login section         -----------------------------------*/
+.login{
+padding-top: 1.8rem;
+padding-left: 1.1rem;
+color: #373d3f;
+
+}
+
+.login h5{
+margin-bottom: 1rem;
+margin-left: 12rem;
+}
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ login section         -----------------------------------*/
+
+.footer
+{
+position: absolute;
+bottom: 0;
+width: 100%;
+}
+
+@media screen and (max-width:580px){
+
+.register h5,.login h5{
+  margin-bottom: 1rem;
+  margin-left: 0rem;
+}
 }
