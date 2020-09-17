@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SignInLink from './SignInLink'
-import SignOut from './SignOut'
+import SignInLink from './SignInlink'
+import SignOut from './signoutlink'
 import { Link } from 'react-router-dom'
 
 class Navbar extends Component {
