@@ -24,6 +24,8 @@ function App() {
         <Route exact path='/blogs/create' component={ NewBlog } />
         <Route exact path='/blogs/signin' component={ Register } />
         <Route exact path='/blogs/login' component={ Login } />
+        <Route exact path='/blogs/logout' >  <Redirect to="/blogs" /> </Route>
+
         <Footer />
       </Router>
     </div>
