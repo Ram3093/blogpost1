@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 var   cors = require('cors');
 const mongoose =require("mongoose");
 const routes=require('./Routes/auth')
+const Blog=require('./models/newblog');
+const blogUser = require('./models/user');
 
 const port =4000;
 
@@ -25,3 +27,12 @@ app.use(cors())
 app.use(bodyParser.json());
 
 app.use('/blogs',routes)
+app.get('/blogs',async(req,res)=>{
+  try{
+   const blogs=await Blog.find();
+   res.status(201).json(blogs);
+  }catch(err){
+   res.status(400).json(err);
+  }
+
+})
