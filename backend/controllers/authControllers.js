@@ -54,11 +54,12 @@ module.exports.create=async(req,res)=>{
    const { blogtitle, blogsnippet,blogbody }=req.body;
    try{
       const blog=await Blog.create({ blogtitle,blogsnippet,blogbody });
-      res.status(201).json({id:blog._id});
+      res.status(201).json({user:blog._id});
    }catch(err){
      // console.log(err);
-      const errors=handleErrors(err);
-      res.status(401).json(errors);
+     const erros=handleErrors(err)
+      
+     res.status(400).json( {erros}  ); 
    }
    
 }
