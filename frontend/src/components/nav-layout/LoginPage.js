@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { api } from '../../backend'
 
 class Login extends Component {
     state={
         email:'',
-        pass:''
+        password:''
     }
     handleChange=(e)=>{
         this.setState({
@@ -11,9 +12,36 @@ class Login extends Component {
         })
     }
 
-    handleSubmit=(e)=>{
+    handleSubmit=async(e)=>{
         e.preventDefault();
-        console.log(this.state);
+       // console.log(this.state);
+       const { email,password }=this.state;
+       document.querySelector('.email.error').textContent=    ''
+       document.querySelector('.password.error').textContent= '';
+       try{
+        const res=await fetch(`${api}/login` , {
+           method:'POST',
+           body:  JSON.stringify({ email,password }),
+           headers:{ 'Content-type':'application/json'}
+        });
+        const data=await res.json();
+        console.log(data);
+        if(data.erros){
+    
+          document.querySelector('.email.error').textContent=data.erros.email;
+          document.querySelector('.password.error').textContent=data.erros.password;
+
+         // console.log(data);
+        }
+        if(data.user){
+            sessionStorage.setItem('jwt',data.jwt);
+              this.props.history.push('/');
+              window.location.reload();
+        }
+      }catch(err){
+          console.log(err)
+      }
+    
     
     }
 
@@ -26,12 +54,14 @@ class Login extends Component {
                    
                    <div className="form-group">
                        <label htmlFor="email">Email</label>
-                       <input type="eamil" className="form-control" placeholder="Enter email" onChange={ this.handleChange } id="email" />
+                       <input type="email" className="form-control" placeholder="Enter email" onChange={ this.handleChange } id="email" />
+                       <div className='email error'></div>
                    </div>
 
                    <div className="form-group">
-                       <label htmlFor="pass">Password</label>
-                       <input type="password" className="form-control" placeholder="Enter password" onChange={ this.handleChange } id="pass" />
+                       <label htmlFor="password">Password</label>
+                       <input type="password" className="form-control" placeholder="Enter password" onChange={ this.handleChange } id="password" />
+                       <div className='password error'></div>
                    </div>
 
                    <button type="submit" className="btn btn-primary">Login</button>
